@@ -1,12 +1,13 @@
 package characters;
 
-<<<<<<< HEAD
+
 public class giCharacter {
-=======
+
 public class Character {
->>>>>>> 9de2acaaa9fdd70c476399146cde384554a919d1
 
     private int id;
+
+    private String "hola"
     private String name;
     private int hp;
     private boolean isAlive;

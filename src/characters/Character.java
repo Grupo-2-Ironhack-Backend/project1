@@ -1,13 +1,8 @@
 package characters;
 
-
-public class giCharacter {
-
 public class Character {
 
     private int id;
-
-    private String "hola"
     private String name;
     private int hp;
     private boolean isAlive;

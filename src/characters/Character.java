@@ -1,4 +1,4 @@
-
+package characters;
 
 <<<<<<< HEAD
 public class giCharacter {

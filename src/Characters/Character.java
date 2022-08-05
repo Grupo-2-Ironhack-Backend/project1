@@ -1,4 +1,6 @@
-public class Character {
+package Characters;
+
+public class giCharacter {
 
     private int id;
     private String name;

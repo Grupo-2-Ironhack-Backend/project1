@@ -12,4 +12,14 @@ public class Battle {
         this.team2 = team2;
 
     }
+
+    public void attack(int select){
+        String total = "";
+
+    }
+
+    public void fight(){
+
+    }
+
 }

@@ -26,4 +26,4 @@ public class Wizard extends Character {
         this.intelligence = intelligence;
     }
 }
-}
+

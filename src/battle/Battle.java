@@ -10,5 +10,6 @@ public class Battle {
     public Battle(List<Character> team1, List<Character> team2) {
         this.team1 = team1;
         this.team2 = team2;
+
     }
 }

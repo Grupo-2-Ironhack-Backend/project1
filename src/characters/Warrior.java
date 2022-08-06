@@ -25,4 +25,15 @@ public class Warrior extends Character {
     public void setStrength(int strength) {
         this.strength = strength;
     }
+
+    @Override
+    public String toString() {
+     //@Álex, modifica esta línea para que devuelva lo que necesites.
+        return "Warrior{" +
+                "stamina=" + stamina +
+                ", strength=" + strength +
+                '}';
+    }
 }
+
+

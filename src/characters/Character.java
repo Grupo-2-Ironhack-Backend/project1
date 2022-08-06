@@ -45,4 +45,7 @@ public abstract class Character {
     public void setAlive(boolean alive) {
         isAlive = alive;
     }
+
+
 }
+

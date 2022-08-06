@@ -25,5 +25,14 @@ public class Wizard extends Character {
     public void setIntelligence(int intelligence) {
         this.intelligence = intelligence;
     }
+
+    @Override
+    public String toString() {
+        //@Álex, modifica esta línea para que devuelva lo que necesites.
+        return "Wizard{" +
+                "mana=" + mana +
+                ", intelligence=" + intelligence +
+                '}';
+    }
 }
-}
+

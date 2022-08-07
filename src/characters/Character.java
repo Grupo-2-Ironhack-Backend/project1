@@ -1,4 +1,6 @@
-public class Character {
+package characters;
+
+public abstract class Character {
 
     private int id;
     private String name;
@@ -34,6 +36,11 @@ public class Character {
 
     public void setHp(int hp) {
         this.hp = hp;
+        if (hp <= 0) {
+            setAlive(false);
+        } else {
+            setAlive(true);
+        }
     }
 
     public boolean isAlive() {
@@ -43,4 +50,10 @@ public class Character {
     public void setAlive(boolean alive) {
         isAlive = alive;
     }
+    public void setDamage(int damage) {
+        setHp(hp - damage);
+    }
+
+    abstract public int attack();
 }
+

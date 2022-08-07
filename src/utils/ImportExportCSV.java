@@ -16,9 +16,10 @@ public class ImportExportCSV {
         try (FileWriter writer = new FileWriter(partyFile)) {
             for (Character member : party) {
                 writer.write(member.toString());
+                Logger.LogToScreen(member.getName() + " added to the file.");
             }
         } catch (Exception e) {
-            System.out.println("La banda ha desaparecido en un vórtice de malignidad. No hay banda.");
+            Logger.LogToScreen("La banda ha desaparecido en un vórtice de malignidad. No hay banda.");
         }
     }
 
@@ -38,6 +39,7 @@ public class ImportExportCSV {
                             Boolean.parseBoolean(lineas[4]),
                             Integer.parseInt(lineas[5]),
                             Integer.parseInt(lineas[6])));
+                    Logger.LogToScreen(lineas[2] + " added to the new party.");
                 } else if (lineas[2].equals("Wizard")) {
                     invokedParty.add(new Wizard(Integer.parseInt(lineas[0]),
                             lineas[1],
@@ -46,10 +48,11 @@ public class ImportExportCSV {
                             Boolean.parseBoolean(lineas[4]),
                             Integer.parseInt(lineas[5]),
                             Integer.parseInt(lineas[6])));
+                    Logger.LogToScreen(lineas[2] + " added to the new party.");
                 }
             }
         } catch (Exception e) {
-            System.out.println("La banda no ha podido llegar a la batalla. Estan todos MUERTOS.");
+            Logger.LogToScreen("La banda no ha podido llegar a la batalla. Estan todos MUERTOS.");
         }
 
         return invokedParty;

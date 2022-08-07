@@ -1,7 +1,6 @@
 import characters.Character;
-import characters.Warrior;
-import characters.Wizard;
-import utils.ImportExportCSV;
+import characters.*;
+import utils.*;
 
 import java.util.ArrayList;
 
@@ -39,12 +38,12 @@ public class Main {
 
         // toString() presents info ready to create new objects
         for (Character member : newParty) {
-            System.out.println(member.toString());
+            Logger.LogToScreen(member.toString());
         }
 
         // getCharInfo() presents char info to be properly formatted for GUI
         for (Character member : newParty) {
-            System.out.println(member.getCharInfo());
+            Logger.LogToScreen(member.getCharInfo());
         }
     }
 }

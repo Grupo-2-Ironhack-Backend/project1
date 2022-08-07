@@ -1,5 +1,7 @@
 package characters;
 
+import utils.Logger;
+
 public abstract class Character {
 
     private int id;
@@ -18,6 +20,7 @@ public abstract class Character {
         setAlive(isAlive);
         setCharacterMainAttribute(charAttribute);
         setClassMainAttribute(classAttribute);
+        Logger.LogToScreen("Character " + getName() + " created as a " + getCharClass());
     }
 
     public int getId() {

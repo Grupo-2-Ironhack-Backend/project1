@@ -32,7 +32,7 @@ public class Wizard extends Character implements Attacker {
         return  getName() + " =======================" +
             "\nClass: " + getCharClass() + "     " +
             "\nHealth: " + getHp() + "     " +
-            "\nMana: " + getCharacterMainAttribute() + "     " +
+            "\nMana: " + getCharacterMainAttributgite() + "     " +
             "\nIntelligence: " + getClassMainAttribute() + "     " +
             "\n";
     }

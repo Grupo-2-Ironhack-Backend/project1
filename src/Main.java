@@ -25,8 +25,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Warrior guerrero1 = new Warrior(1,"Jhon",100,true,50,10);
-        Wizard mago1 = new Wizard(5,"Cristian",100,true,50,20);
+        Warrior guerrero1 = new Warrior(1,"Jhon", "Warrior",100,true,50,10);
+        Wizard mago1 = new Wizard(5,"Cristian","Wizard",100,true,50,20);
 
         List<Character> characterList1 = new ArrayList<>();
         List<Character> characterList2 = new ArrayList<>();

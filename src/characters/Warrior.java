@@ -1,6 +1,6 @@
 package characters;
 
-public class Warrior extends Character {
+public class Warrior extends Character implements Attacker {
 
     private int stamina;
     private int strength;
@@ -33,6 +33,27 @@ public class Warrior extends Character {
                 "stamina=" + stamina +
                 ", strength=" + strength +
                 '}';
+    }
+
+    public int attack() {
+       if(stamina >= 5) {
+          return mainAttack();
+       }
+       return secondAttack();
+    }
+
+    @Override
+    public int mainAttack() {
+        int damage = strength;
+        stamina = stamina - 5;
+        return damage;
+    }
+
+    @Override
+    public int secondAttack() {
+        int damage = strength / 2;
+        stamina = stamina + 1;
+        return damage;
     }
 }
 

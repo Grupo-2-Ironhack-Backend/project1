@@ -1,6 +1,6 @@
 package characters;
 
-public class Wizard extends Character {
+public class Wizard extends Character implements Attacker {
     private int mana;
     private int intelligence;
 
@@ -33,6 +33,27 @@ public class Wizard extends Character {
                 "mana=" + mana +
                 ", intelligence=" + intelligence +
                 '}';
+    }
+
+    public int attack() {
+        if(mana >= 5) {
+            return mainAttack();
+        }
+        return secondAttack();
+    }
+
+    @Override
+    public int mainAttack() {
+        int damage = intelligence;
+        mana = mana - 5;
+        return damage;
+    }
+
+    @Override
+    public int secondAttack() {
+        int damage = 2;
+        mana = mana + 1;
+        return damage;
     }
 }
 

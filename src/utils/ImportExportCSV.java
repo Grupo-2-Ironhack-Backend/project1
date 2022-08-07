@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class ImportExportCSV {
     public static void exportPartyToCSV(ArrayList<Character> party) {
-        File partyFile = new File("./party.csv");
+        File partyFile = new File("./io/party.csv");
 
         try (FileWriter writer = new FileWriter(partyFile)) {
             for (Character member : party) {
@@ -26,7 +26,7 @@ public class ImportExportCSV {
     public static ArrayList<Character> importCSVParty() {
         ArrayList<Character> invokedParty = new ArrayList<>();
 
-        try (Scanner scanFile = new Scanner(new File("./party.csv"))) {
+        try (Scanner scanFile = new Scanner(new File("./io/party.csv"))) {
             while (scanFile.hasNextLine()) {
                 String linea = scanFile.nextLine();
                 String[] lineas = linea.split(",");

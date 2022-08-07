@@ -37,13 +37,13 @@ public class Main {
         ArrayList<Character> newParty = ImportExportCSV.importCSVParty();
 
         // toString() presents info ready to create new objects
-        for (Character member : newParty) {
-            Logger.LogToScreen(member.toString());
-        }
+        /*for (Character member : newParty) {
+            Logger.LogToScreen(member.toString(), TypeOfMessages.CREATION);
+        }*/
 
         // getCharInfo() presents char info to be properly formatted for GUI
-        for (Character member : newParty) {
-            Logger.LogToScreen(member.getCharInfo());
-        }
+        /*for (Character member : newParty) {
+            Logger.LogToScreen(member.getCharInfo(), TypeOfMessages.PARTY_JOINED);
+        }*/
     }
 }

@@ -1,5 +1,7 @@
 package characters;
 
+import utils.Logger;
+import utils.TypeOfMessages;
 
 public class Wizard extends Character implements Attacker {
 
@@ -8,7 +10,7 @@ public class Wizard extends Character implements Attacker {
     }
 
     public int attack() {
-        if(mana >= 5) {
+        if(getCharacterMainAttribute() >= 5) {
             return mainAttack();
         }
         return secondAttack();
@@ -16,15 +18,21 @@ public class Wizard extends Character implements Attacker {
 
     @Override
     public int mainAttack() {
-        int damage = intelligence;
-        mana = mana - 5;
+        int damage = getClassMainAttribute();
+        setCharacterMainAttribute(getCharacterMainAttribute() - 5);
+        Logger.LogToScreen("Damage dealt: " + damage, TypeOfMessages.DAMAGE_DEALT);
+
         return damage;
     }
 
     @Override
     public int secondAttack() {
         int damage = 2;
-        mana = mana + 1;
+        setCharacterMainAttribute(getCharacterMainAttribute() + 1);
+        Logger.LogToScreen("Damage dealt: " + damage +
+                ", Stamina status: " +
+                getCharacterMainAttribute(), TypeOfMessages.DAMAGE_DEALT);
+
         return damage;
     }
     

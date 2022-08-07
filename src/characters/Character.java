@@ -53,6 +53,11 @@ public abstract class Character {
 
     public void setHp(int hp) {
         this.hp = hp;
+        if (hp <= 0) {
+            setAlive(false);
+        } else {
+            setAlive(true);
+        }
     }
 
     public boolean isAlive() {
@@ -78,8 +83,14 @@ public abstract class Character {
     public void setClassMainAttribute(int classMainAttribute) {
         this.classMainAttribute = classMainAttribute;
     }
+    public void setDamage(int damage) {
+        setHp(hp - damage);
+    }
 
     public abstract String getCharInfo();
+    
+    public abstract int attack();
+    
     @Override
     public String toString() {
         //@Álex, modifica esta línea para que devuelva lo que necesites.

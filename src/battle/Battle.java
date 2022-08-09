@@ -21,7 +21,7 @@ public class Battle {
         for (int i = 0; i < team1.size(); i++) {
             System.out.println("\n\n========= BATALLA " + (i+1) + " ============");
             while (team1.get(i).isAlive() && team2.get(i).isAlive()) {
-               attack(team1.get(i).getClassMainAttribute(), team2.get(i).getClassMainAttribute(), i);
+               attack(team1.get(i), team2.get(i));
             }
         }
     }
@@ -36,7 +36,7 @@ public class Battle {
         return 0;
     }*/
 
-    public void attack(int characterAttack1, int characterAttack2, int pos){
+    public void attack(Character characterAttack1, Character characterAttack2){
 
         System.out.println("\n\n ======= ATAQUE ========");
 
@@ -49,57 +49,55 @@ public class Battle {
         System.out.println("Boolean de mago: " + skill1);
         System.out.println("Boolean de guerrero: " + skill2);
 
-
-
-        if (team1.get(pos).getClass() == Warrior.class){
+        if (characterAttack1.getClass() == Warrior.class){
             //attackGuerrero(skill2, pos, characterList2, characterAttack1);
-            team2.get(pos).setHp(attackWarrior(skill2, pos, team2, characterAttack1));
+            characterAttack2.setHp(attackWarrior(skill2, characterAttack2, characterAttack1.getClassMainAttribute()));
         } else {
             //attackMago(skill1, pos, characterList1, characterAttack2);
-            team2.get(pos).setHp(attackWizard(skill1, pos, team2, characterAttack1));
+            characterAttack2.setHp(attackWizard(skill1, characterAttack2, characterAttack1.getClassMainAttribute()));
         }
 
-        if (team2.get(pos).getClass() == Warrior.class){
-            team1.get(pos).setHp(attackWarrior(skill2, pos, team1, characterAttack2));
+        if (characterAttack2.getClass() == Warrior.class){
+            characterAttack1.setHp(attackWarrior(skill2, characterAttack1, characterAttack2.getClassMainAttribute()));
         } else {
-            team1.get(pos).setHp(attackWizard(skill1, pos, team1, characterAttack2));
+            characterAttack1.setHp(attackWizard(skill1, characterAttack1, characterAttack2.getClassMainAttribute()));
         }
 
 
-        System.out.println("El hp del mago es de: " + team1.get(pos).getHp());
-        System.out.println("El hp del guerrero es de: " + team2.get(pos).getHp());
+        System.out.println("El hp del mago es de: " + characterAttack1.getHp());
+        System.out.println("El hp del guerrero es de: " + characterAttack2.getHp());
 
-        if (team1.get(pos).getHp() > 0){
-            team1.get(pos).setAlive(true);
+        if (characterAttack1.getHp() > 0){
+            characterAttack1.setAlive(true);
         } else {
-            team1.get(pos).setAlive(false);
+            characterAttack1.setAlive(false);
         }
 
-        if (team2.get(pos).getHp() > 0){
-            team2.get(pos).setAlive(true);
+        if (characterAttack2.getHp() > 0){
+            characterAttack2.setAlive(true);
         } else {
-            team2.get(pos).setAlive(false);
+            characterAttack2.setAlive(false);
         }
 
     }
 
-    public int attackWarrior(boolean skill, int num, List<Character> characterList, int characterAttack){
+    public int attackWarrior(boolean skill, Character characterList, int characterAttack){
         if (skill == true){
-            System.out.println("Vida del mago luego de ataque critico del guerrero: " + (characterList.get(num).getHp() - characterAttack));
-            return characterList.get(num).getHp() - characterAttack;
+            System.out.println("Vida del mago luego de ataque critico del guerrero: " + (characterList.getHp() - characterAttack));
+            return characterList.getHp() - characterAttack;
         } else {
-            System.out.println("Vida del mago luego de ataque normal del guerrero: " + (characterList.get(num).getHp() - (characterAttack/2)));
-            return characterList.get(num).getHp() - (characterAttack/2);
+            System.out.println("Vida del mago luego de ataque normal del guerrero: " + (characterList.getHp() - (characterAttack/2)));
+            return characterList.getHp() - (characterAttack/2);
         }
     }
 
-    public int attackWizard(boolean skill, int num, List<Character> characterList, int characterAttack){
+    public int attackWizard(boolean skill, Character characterList, int characterAttack){
         if (skill == true){
-            System.out.println("Vida del guerrero luego de ataque critico del mago: " + (characterList.get(num).getHp() - characterAttack));
-            return characterList.get(num).getHp() - characterAttack;
+            System.out.println("Vida del guerrero luego de ataque critico del mago: " + (characterList.getHp() - characterAttack));
+            return characterList.getHp() - characterAttack;
         } else {
-            System.out.println("Vida del guerrero luego de ataque normal del mago: " + (characterList.get(num).getHp() - 2));
-            return characterList.get(num).getHp() - 2;
+            System.out.println("Vida del guerrero luego de ataque normal del mago: " + (characterList.getHp() - 2));
+            return characterList.getHp() - 2;
         }
     }
 

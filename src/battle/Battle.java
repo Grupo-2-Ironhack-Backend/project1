@@ -21,12 +21,12 @@ public class Battle {
         for (int i = 0; i < team1.size(); i++) {
             System.out.println("\n\n========= BATALLA " + (i+1) + " ============");
             while (team1.get(i).isAlive() && team2.get(i).isAlive()) {
-                attack(instanceOf(team1.get(i)), instanceOf(team2.get(i)), i);
+               attack(team1.get(i).getClassMainAttribute(), team2.get(i).getClassMainAttribute(), i);
             }
         }
     }
 
-    public int instanceOf(Character list){
+   /* public int instanceOf(Character list){
 
         if (list instanceof Warrior){
             return ((Warrior) list).getStrength();
@@ -34,7 +34,7 @@ public class Battle {
             return  ((Wizard) list).getIntelligence();
         }
         return 0;
-    }
+    }*/
 
     public void attack(int characterAttack1, int characterAttack2, int pos){
 
@@ -53,16 +53,16 @@ public class Battle {
 
         if (team1.get(pos).getClass() == Warrior.class){
             //attackGuerrero(skill2, pos, characterList2, characterAttack1);
-            team2.get(pos).setHp(attackGuerrero(skill2, pos, team2, characterAttack1));
+            team2.get(pos).setHp(attackWarrior(skill2, pos, team2, characterAttack1));
         } else {
             //attackMago(skill1, pos, characterList1, characterAttack2);
-            team2.get(pos).setHp(attackMago(skill1, pos, team2, characterAttack1));
+            team2.get(pos).setHp(attackWizard(skill1, pos, team2, characterAttack1));
         }
 
         if (team2.get(pos).getClass() == Warrior.class){
-            team1.get(pos).setHp(attackGuerrero(skill2, pos, team1, characterAttack2));
+            team1.get(pos).setHp(attackWarrior(skill2, pos, team1, characterAttack2));
         } else {
-            team1.get(pos).setHp(attackMago(skill1, pos, team1, characterAttack2));
+            team1.get(pos).setHp(attackWizard(skill1, pos, team1, characterAttack2));
         }
 
 
@@ -83,7 +83,7 @@ public class Battle {
 
     }
 
-    public int attackGuerrero(boolean skill, int num, List<Character> characterList, int characterAttack){
+    public int attackWarrior(boolean skill, int num, List<Character> characterList, int characterAttack){
         if (skill == true){
             System.out.println("Vida del mago luego de ataque critico del guerrero: " + (characterList.get(num).getHp() - characterAttack));
             return characterList.get(num).getHp() - characterAttack;
@@ -93,7 +93,7 @@ public class Battle {
         }
     }
 
-    public int attackMago(boolean skill, int num, List<Character> characterList, int characterAttack){
+    public int attackWizard(boolean skill, int num, List<Character> characterList, int characterAttack){
         if (skill == true){
             System.out.println("Vida del guerrero luego de ataque critico del mago: " + (characterList.get(num).getHp() - characterAttack));
             return characterList.get(num).getHp() - characterAttack;

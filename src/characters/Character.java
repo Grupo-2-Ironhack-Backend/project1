@@ -10,8 +10,8 @@ public abstract class Character {
     private String charClass;
     private int hp;
     private boolean isAlive;
-    private int characterMainAttribute;
-    private int classMainAttribute;
+    private int characterMainAttribute;//Mana y stamina
+    private int classMainAttribute;//Fuerza y inteligencia
 
     public Character(int id, String name, String charClass, int hp, boolean isAlive, int charAttribute, int classAttribute) {
         setId(id);

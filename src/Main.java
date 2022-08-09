@@ -25,8 +25,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Warrior guerrero1 = new Warrior(1,"Jhon", "Warrior",100,true,50,10);
-        Wizard mago1 = new Wizard(5,"Cristian","Wizard",100,true,50,20);
+        Character guerrero1 = new Warrior(1,"Jhon", "Warrior",100,true,50,10);
+        Character mago1 = new Wizard(5,"Cristian","Wizard",100,true,50,20);
 
         List<Character> characterList1 = new ArrayList<>();
         List<Character> characterList2 = new ArrayList<>();
@@ -36,6 +36,8 @@ public class Main {
 
         Battle battle = new Battle(characterList1,characterList2);
         battle.fight();
+
+        System.out.println("\n\n==================================\n");
 
         ArrayList<Character> party = new ArrayList<>();
 
@@ -57,14 +59,21 @@ public class Main {
 
         ArrayList<Character> newParty = ImportExportCSV.importCSVParty();
 
+
+
+
+
+
+
+
         // toString() presents info ready to create new objects
-        /*for (Character member : newParty) {
+       for (Character member : newParty) {
             Logger.LogToScreen(member.toString(), TypeOfMessages.CREATION);
-        }*/
+        }
 
         // getCharInfo() presents char info to be properly formatted for GUI
-        /*for (Character member : newParty) {
+        for (Character member : newParty) {
             Logger.LogToScreen(member.getCharInfo(), TypeOfMessages.PARTY_JOINED);
-        }*/
+        }
     }
 }

@@ -25,6 +25,10 @@ public class Main {
 
     public static void main(String[] args) {
 
+        //Creación de una banda de guerreros y magos
+        Logger.logToScreen("Creating a party of warriors and wizards", TypeOfMessages.CREATION);
+
+
         Character guerrero1 = new Warrior(1,"Jhon", "Warrior",100,true,50,10);
         Character mago1 = new Wizard(5,"Cristian","Wizard",100,true,50,20);
 

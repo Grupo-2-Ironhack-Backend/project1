@@ -3,7 +3,6 @@ package battle;
 import characters.Character;
 import utils.Logger;
 import utils.TypeOfMessages;
-
 import java.util.List;
 
 public class Graveyard {

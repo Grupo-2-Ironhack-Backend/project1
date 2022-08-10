@@ -15,6 +15,18 @@ public class Warrior extends Character implements Attacker {
         return random;
     }
 
+    public int setRandomStamina() {
+        int random = (int) (Math.random() * 40 + 10);
+        this.setCharacterMainAttribute(random);
+        return random;
+    }
+
+    public int setRandomStrength() {
+        int random = (int) (Math.random() * 10 + 0);
+        this.setClassMainAttribute(random);
+        return random;
+    }
+
     public int attack() {
        if(getCharacterMainAttribute() >= 5) {
           return mainAttack();

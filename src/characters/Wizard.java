@@ -15,6 +15,18 @@ public class Wizard extends Character implements Attacker {
         return random;
     }
 
+    public int setRandomMana() {
+        int random = (int) (Math.random() * 40 + 10);
+        this.setCharacterMainAttribute(random);
+        return random;
+    }
+
+    public int setRandomIntelligence() {
+        int random = (int) (Math.random() * 50 + 0);
+        this.setClassMainAttribute(random);
+        return random;
+    }
+
     public int attack() {
         if(getCharacterMainAttribute() >= 5) {
             return mainAttack();

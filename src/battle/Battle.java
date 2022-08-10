@@ -38,7 +38,7 @@ public class Battle {
         return 0;
     }*/
 
-    public void attack(Character characterAttack1, Character characterAttack2){ //Ya había un Main Attack y Second Attack preparados
+    public void attack(Character characterAttack1, Character characterAttack2){ //Ya había un Main Attack y Second Attack preparados y que además los hizo Katherine
 
         // System.out.println("\n\n ======= ATAQUE ========"); //Ya había un Logger preparado para lanzar mensajes.
         Logger.logToScreen("\n ====== ATAQUE ========", TypeOfMessages.ATTACK);

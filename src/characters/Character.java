@@ -3,6 +3,12 @@ package characters;
 import utils.Logger;
 import utils.TypeOfMessages;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 public abstract class Character {
 
     private int id;
@@ -38,6 +44,17 @@ public abstract class Character {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setRandomName() throws FileNotFoundException {
+        File randomNames = new File("io/listOfNames.txt");
+        Scanner scanner = new Scanner(randomNames);
+        List<String> names = new ArrayList<>();
+        while (scanner.hasNextLine()) {
+            names.add(scanner.nextLine());
+        }
+        int random = (int) (Math.random() * names.size());
+        this.name = names.get(random);
     }
 
     public String getCharClass() {

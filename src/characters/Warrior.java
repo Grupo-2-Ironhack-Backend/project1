@@ -9,6 +9,12 @@ public class Warrior extends Character implements Attacker {
         super(id, name, charClass, hp, isAlive, stamina, strength);
     }
 
+    public int setRandomHp() {
+        int random = (int) (Math.random() * 100 + 100);
+        this.setHp(random);
+        return random;
+    }
+
     public int attack() {
        if(getCharacterMainAttribute() >= 5) {
           return mainAttack();

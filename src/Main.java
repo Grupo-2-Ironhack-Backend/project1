@@ -35,7 +35,7 @@ public class Main {
         characterList2.add(guerrero1);
 
         Battle battle = new Battle(characterList1,characterList2);
-        battle.fight();
+        // battle.fight();
 
         System.out.println("\n\n==================================\n");
 

@@ -9,6 +9,12 @@ public class Wizard extends Character implements Attacker {
         super(id, name, charClass, hp, isAlive, mana, intelligence);
     }
 
+    public int setRandomHp() {
+        int random = (int) (Math.random() * 50 + 50);
+        this.setHp(random);
+        return random;
+    }
+
     public int attack() {
         if(getCharacterMainAttribute() >= 5) {
             return mainAttack();

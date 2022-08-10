@@ -1,3 +1,11 @@
+import battle.Battle;
+import characters.Character;
+import characters.Warrior;
+import characters.Wizard;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import characters.Character;
 import characters.*;
 import utils.*;
@@ -16,6 +24,21 @@ public class Main {
      */
 
     public static void main(String[] args) {
+
+        Character guerrero1 = new Warrior(1,"Jhon", "Warrior",100,true,50,10);
+        Character mago1 = new Wizard(5,"Cristian","Wizard",100,true,50,20);
+
+        List<Character> characterList1 = new ArrayList<>();
+        List<Character> characterList2 = new ArrayList<>();
+
+        characterList1.add(mago1);
+        characterList2.add(guerrero1);
+
+        Battle battle = new Battle(characterList1,characterList2);
+        battle.fight();
+
+        System.out.println("\n\n==================================\n");
+
         ArrayList<Character> party = new ArrayList<>();
 
         Character guts = new Warrior(5, "Guts", "Warrior", 5000, true, 2500, 250);
@@ -36,14 +59,21 @@ public class Main {
 
         ArrayList<Character> newParty = ImportExportCSV.importCSVParty();
 
+
+
+
+
+
+
+
         // toString() presents info ready to create new objects
-        /*for (Character member : newParty) {
+       for (Character member : newParty) {
             Logger.LogToScreen(member.toString(), TypeOfMessages.CREATION);
-        }*/
+        }
 
         // getCharInfo() presents char info to be properly formatted for GUI
-        /*for (Character member : newParty) {
+        for (Character member : newParty) {
             Logger.LogToScreen(member.getCharInfo(), TypeOfMessages.PARTY_JOINED);
-        }*/
+        }
     }
 }

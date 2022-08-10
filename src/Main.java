@@ -68,12 +68,12 @@ public class Main {
 
         // toString() presents info ready to create new objects
        for (Character member : newParty) {
-            Logger.LogToScreen(member.toString(), TypeOfMessages.CREATION);
+            Logger.logToScreen(member.toString(), TypeOfMessages.CREATION);
         }
 
         // getCharInfo() presents char info to be properly formatted for GUI
         for (Character member : newParty) {
-            Logger.LogToScreen(member.getCharInfo(), TypeOfMessages.PARTY_JOINED);
+            Logger.logToScreen(member.getCharInfo(), TypeOfMessages.PARTY_JOINED);
         }
     }
 }

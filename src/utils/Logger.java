@@ -1,11 +1,7 @@
 package utils;
 
 public class Logger {
-    public static void LogToScreen(String message, TypeOfMessages typeOfMessage) {
-        try{
-            Thread.sleep(1000); // 1000ms = 1s
-        }catch(InterruptedException ex){
-        }
+    public static void logToScreen(String message, TypeOfMessages typeOfMessage) {
         switch (typeOfMessage) {
             case CREATION -> {
                 System.out.println(ConsoleColors.BLUE_BOLD + message);
@@ -35,6 +31,11 @@ public class Logger {
                 System.out.println(ConsoleColors.WHITE + message);
                 break;
             }
+        }
+        try{
+            Thread.sleep(1000); // 1000ms = 1s
+        }catch(InterruptedException ex){
+            System.err.println("Error: " + ex.getMessage());
         }
     }
 }

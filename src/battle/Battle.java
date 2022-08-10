@@ -3,6 +3,8 @@ package battle;
 import characters.Character;
 import characters.Warrior;
 import characters.Wizard;
+import utils.Logger;
+import utils.TypeOfMessages;
 
 import java.util.List;
 
@@ -36,9 +38,10 @@ public class Battle {
         return 0;
     }*/
 
-    public void attack(Character characterAttack1, Character characterAttack2){
+    public void attack(Character characterAttack1, Character characterAttack2){ //Ya había un Main Attack y Second Attack preparados
 
-        System.out.println("\n\n ======= ATAQUE ========");
+        // System.out.println("\n\n ======= ATAQUE ========"); //Ya había un Logger preparado para lanzar mensajes.
+        Logger.logToScreen("\n ====== ATAQUE ========", TypeOfMessages.ATTACK);
 
         boolean skill1;
         boolean skill2;
@@ -84,6 +87,7 @@ public class Battle {
     public int attackWarrior(boolean skill, Character characterList, int characterAttack){
         if (skill == true){
             System.out.println("Vida del mago luego de ataque critico del guerrero: " + (characterList.getHp() - characterAttack));
+
             return characterList.getHp() - characterAttack;
         } else {
             System.out.println("Vida del mago luego de ataque normal del guerrero: " + (characterList.getHp() - (characterAttack/2)));

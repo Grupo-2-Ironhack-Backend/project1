@@ -20,7 +20,7 @@ public class Warrior extends Character implements Attacker {
     public int mainAttack() {
         int damage = getClassMainAttribute();
         setCharacterMainAttribute(getCharacterMainAttribute() - 5);
-        Logger.LogToScreen("Damage dealt: " + damage, TypeOfMessages.DAMAGE_DEALT);
+        Logger.logToScreen("Damage dealt: " + damage, TypeOfMessages.DAMAGE_DEALT);
 
         return damage;
     }
@@ -29,7 +29,7 @@ public class Warrior extends Character implements Attacker {
     public int secondAttack() {
         int damage = getClassMainAttribute() / 2;
         setCharacterMainAttribute(getCharacterMainAttribute() + 1);
-        Logger.LogToScreen("Damage dealt: " + damage +
+        Logger.logToScreen("Damage dealt: " + damage +
                 ", Stamina status: " +
                 getCharacterMainAttribute(), TypeOfMessages.DAMAGE_DEALT);
         return damage;

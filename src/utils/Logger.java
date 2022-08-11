@@ -9,6 +9,11 @@ public class Logger {
             }
             case ATTACK -> {
                 System.out.println(ConsoleColors.RED + message);
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 break;
             }
             case DAMAGE_DEALT -> {

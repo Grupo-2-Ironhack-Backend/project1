@@ -26,7 +26,7 @@ public class Party {
     }
 
     public void setParty(List<Character> party) {
-        this.party = party;
+            this.party = party;
     }
 
     public Party() {

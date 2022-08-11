@@ -15,6 +15,7 @@ import utils.*;
 import java.util.ArrayList;
 
 import static java.lang.Math.random;
+import static utils.ImportExportCSV.importCSVParty;
 
 public class Main {
     /**
@@ -44,14 +45,23 @@ public class Main {
 
         Character guerrero1 = new Warrior(1,"Jhon", "Warrior",100,true,50,10);
         Character mago1 = new Wizard(5,"Cristian","Wizard",100,true,50,20);
+        Character guerrero2 = new Warrior(2,"newWarrior", "Warrior",100,true,50,10);
+        Character mago2 = new Wizard(6,"newWizard","Wizard",100,true,50,20);
 
-        List<Character> characterList1 = new ArrayList<>();
-        List<Character> characterList2 = new ArrayList<>();
+        // List<Character> characterList1 = new ArrayList<>();
+        //List<Character> characterList2 = new ArrayList<>();
 
-        characterList1.add(mago1);
-        characterList2.add(guerrero1);
+        Party characterList1 = new Party();
+        Party characterList2 = new Party();
 
-        Battle battle = new Battle(characterList1,characterList2);
+        characterList1.addToParty(mago1);
+        characterList1.addToParty(guerrero2);
+        characterList1.addToParty(guerrero1);
+        characterList1.addToParty(mago2);
+
+        List<Character> characterList3 = importCSVParty();
+
+        Battle battle = new Battle(characterList1.getParty(),characterList3);
         battle.fight();
 
         System.out.println("\n\n==================================\n");

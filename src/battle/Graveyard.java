@@ -17,7 +17,7 @@ public class Graveyard {
 
     public void addToGraveyard(Character character){
         graveyard.add(character);
-        Logger.logToScreen("Character " + character.getName() + " added to the graveyard", TypeOfMessages.DEATH);
+        Logger.logToScreen(character.getName() + " IS DEAD! WHERE'S A NECROMANCEER!?", TypeOfMessages.DEATH);
     }
 
     public List<Character> getGraveyard() {

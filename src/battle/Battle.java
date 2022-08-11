@@ -23,6 +23,8 @@ public class Battle {
 
     public void fight(){
         while (!team1.isEmpty() && !team2.isEmpty()){
+
+
             while (team1.get(0).isAlive() && team2.get(0).isAlive()) {
                 attack(team1.get(0), team2.get(0));
             }
@@ -35,16 +37,15 @@ public class Battle {
                 team2.remove(team2.get(0));
             }
 
-            System.out.println("Tamaño del equipo 1: " + team1.size());
-            System.out.println("Tamaño del equipo 2: " + team2.size());
+            Logger.logToScreen("Still alive: " + team1.size() + " members in team 1.", TypeOfMessages.CREATION);
+            Logger.logToScreen(team2.size() + " mercenaries left in team 2", TypeOfMessages.CREATION);
 
             if (team1.isEmpty() && team2.isEmpty()) {
-                System.out.println("Empate");
-
+                Logger.logToScreen("Both bands are dead... '¬¬", TypeOfMessages.DEATH);
             } else if (team1.isEmpty()) {
-                System.out.println("Ha ganado el equipo 2");
-            } else {
-                System.out.println("Ha ganado el equipo 1");
+                Logger.logToScreen("Team 2 gets an epic victory!", TypeOfMessages.CREATION);
+            } else if (team2.isEmpty()){
+                Logger.logToScreen("Team 2 wiped the floor with team 1!", TypeOfMessages.CREATION);
             }
         }
 
@@ -52,17 +53,13 @@ public class Battle {
 
     public void attack(Character attacker1, Character attacker2){ //Ya había un Main Attack y Second Attack preparados y que además los hizo Katherine
 
-        // System.out.println("\n\n ======= ATAQUE ========"); //Ya había un Logger preparado para lanzar mensajes.
-        Logger.logToScreen("\n ====== ATAQUE ========", TypeOfMessages.ATTACK);
+        Logger.logToScreen("\n =========== ROUND =============", TypeOfMessages.ATTACK);
 
         boolean skill1;
         boolean skill2;
 
         skill1 = Math.random() < 0.5;
         skill2 = Math.random() < 0.5;
-
-        System.out.println("Boolean de mago: " + skill1);
-        System.out.println("Boolean de guerrero: " + skill2);
 
         // Set HP of characters
         if (attacker1.getClass() == Warrior.class){
@@ -80,38 +77,42 @@ public class Battle {
         }
 
 
-        System.out.println("El hp del mago es de: " + attacker1.getHp());
-        System.out.println("El hp del guerrero es de: " + attacker2.getHp());
+        //Logger.logToScreen("Health of " + attacker1.getName() + " it's: " + attacker1.getHp(), TypeOfMessages.PARTY_JOINED);
+        //Logger.logToScreen("Health of " + attacker2.getName() + " it's: " + attacker2.getHp(), TypeOfMessages.PARTY_JOINED);
 
-
-        if (attacker1.getHp() <= 0){
+        attacker1.setAlive((attacker1.getHp() <= 0) ? false : true);
+        attacker2.setAlive((attacker2.getHp() <= 0) ? false : true);
+        /*if (attacker1.getHp() <= 0){
             attacker1.setAlive(false);
-            // attacker1.setAlive(true);
         }
 
         if (attacker2.getHp() <= 0){
             attacker2.setAlive(false);
-        }
+        }*/
 
     }
 
     public int attackWarrior(boolean skill, Character characterList, int attacker){
         if (skill == true){
-            System.out.println("Vida del mago luego de ataque critico del guerrero: " + (characterList.getHp() - attacker));
+            Logger.logToScreen(characterList.getName() + " received " + attacker + " damage.", TypeOfMessages.ATTACK);
+            Logger.logToScreen("Health points of " + characterList.getName() + " after critical hit: " + (characterList.getHp() - attacker), TypeOfMessages.PARTY_JOINED);
 
             return characterList.getHp() - attacker;
         } else {
-            System.out.println("Vida del mago luego de ataque normal del guerrero: " + (characterList.getHp() - (attacker/2)));
+            Logger.logToScreen(characterList.getName() + " received " + attacker/2 + " damage.", TypeOfMessages.ATTACK);
+            Logger.logToScreen("Health points of " + characterList.getName() + " after a regular hit: " + (characterList.getHp() - (attacker/2)), TypeOfMessages.PARTY_JOINED);
             return characterList.getHp() - (attacker/2);
         }
     }
 
     public int attackWizard(boolean skill, Character characterList, int attacker){
         if (skill == true){
-            System.out.println("Vida del guerrero luego de ataque critico del mago: " + (characterList.getHp() - attacker));
+            Logger.logToScreen(characterList.getName() + " received " + attacker + " damage.", TypeOfMessages.ATTACK);
+            Logger.logToScreen("Health points of " + characterList.getName() + " after critical blow: " + (characterList.getHp() - attacker), TypeOfMessages.PARTY_JOINED);
             return characterList.getHp() - attacker;
         } else {
-            System.out.println("Vida del guerrero luego de ataque normal del mago: " + (characterList.getHp() - 2));
+            Logger.logToScreen(characterList.getName() + " received " + 2 + " damage.", TypeOfMessages.ATTACK);
+            Logger.logToScreen("Health points of " + characterList.getName() + " after a regular hit: " + (characterList.getHp() - 2), TypeOfMessages.PARTY_JOINED);
             return characterList.getHp() - 2;
         }
     }

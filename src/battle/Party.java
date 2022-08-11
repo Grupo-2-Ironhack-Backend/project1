@@ -1,5 +1,6 @@
 package battle;
 
+import UI.UIMessages;
 import characters.Character;
 import characters.Warrior;
 import characters.Wizard;
@@ -42,10 +43,10 @@ public class Party {
 
     public Party createParty() throws FileNotFoundException, InterruptedException {
 
-        int size = (int) (random() * 10) + 1;
+        int size = (int) (random() * 5) + 5;
         Party party = new Party();
-
         Logger.logToScreen(size + " mercenaries, mixing warriors and wizards are gathering together! Wait for it...", TypeOfMessages.CREATION);
+
 
         for (int i = 0; i < size; i++) {
             if (Math.random()*2 >= 1.0) {

@@ -1,5 +1,6 @@
 package battle;
 
+import UI.UIMessages;
 import characters.Character;
 import characters.Warrior;
 import characters.Wizard;
@@ -22,6 +23,7 @@ public class Battle {
     }
 
     public void fight(){
+        Logger.logToScreen(UIMessages.warriorsArt, TypeOfMessages.ART);
         while (!team1.isEmpty() && !team2.isEmpty()){
 
 
@@ -51,7 +53,7 @@ public class Battle {
 
     }
 
-    public void attack(Character attacker1, Character attacker2){ //Ya había un Main Attack y Second Attack preparados y que además los hizo Katherine
+    public void attack(Character attacker1, Character attacker2){
 
         Logger.logToScreen("\n =========== ROUND =============", TypeOfMessages.ATTACK);
 
@@ -84,12 +86,12 @@ public class Battle {
     public int attackWarrior(boolean skill, Character characterList, int attacker){
         if (skill == true){
             Logger.logToScreen(characterList.getName() + " received " + attacker + " damage.", TypeOfMessages.ATTACK);
-            Logger.logToScreen("Health points of " + characterList.getName() + " after critical hit: " + (characterList.getHp() - attacker), TypeOfMessages.PARTY_JOINED);
+            Logger.logToScreen("Health points of " + characterList.getName() + " after critical hit: " + Math.max((characterList.getHp() - attacker),0), TypeOfMessages.PARTY_JOINED);
 
             return characterList.getHp() - attacker;
         } else {
             Logger.logToScreen(characterList.getName() + " received " + attacker/2 + " damage.", TypeOfMessages.ATTACK);
-            Logger.logToScreen("Health points of " + characterList.getName() + " after a regular hit: " + (characterList.getHp() - (attacker/2)), TypeOfMessages.PARTY_JOINED);
+            Logger.logToScreen("Health points of " + characterList.getName() + " after a regular hit: " + Math.max((characterList.getHp() - (attacker/2)),0), TypeOfMessages.PARTY_JOINED);
             return characterList.getHp() - (attacker/2);
         }
     }
@@ -97,11 +99,11 @@ public class Battle {
     public int attackWizard(boolean skill, Character characterList, int attacker){
         if (skill == true){
             Logger.logToScreen(characterList.getName() + " received " + attacker + " damage.", TypeOfMessages.ATTACK);
-            Logger.logToScreen("Health points of " + characterList.getName() + " after critical blow: " + (characterList.getHp() - attacker), TypeOfMessages.PARTY_JOINED);
+            Logger.logToScreen("Health points of " + characterList.getName() + " after critical blow: " + Math.max((characterList.getHp() - attacker),0), TypeOfMessages.PARTY_JOINED);
             return characterList.getHp() - attacker;
         } else {
             Logger.logToScreen(characterList.getName() + " received " + 2 + " damage.", TypeOfMessages.ATTACK);
-            Logger.logToScreen("Health points of " + characterList.getName() + " after a regular hit: " + (characterList.getHp() - 2), TypeOfMessages.PARTY_JOINED);
+            Logger.logToScreen("Health points of " + characterList.getName() + " after a regular hit: " + Math.max((characterList.getHp() - 2),0), TypeOfMessages.PARTY_JOINED);
             return characterList.getHp() - 2;
         }
     }

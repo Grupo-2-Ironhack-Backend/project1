@@ -1,5 +1,6 @@
 package battle;
 
+import UI.UIMessages;
 import characters.Character;
 import utils.Logger;
 import utils.TypeOfMessages;
@@ -17,6 +18,7 @@ public class Graveyard {
 
     public void addToGraveyard(Character character){
         graveyard.add(character);
+        Logger.logToScreen(UIMessages.monsterArt, TypeOfMessages.ART);
         Logger.logToScreen(character.getName() + " IS DEAD! WHERE'S A NECROMANCEER!?", TypeOfMessages.DEATH);
     }
 

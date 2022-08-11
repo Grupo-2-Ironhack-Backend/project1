@@ -78,7 +78,6 @@ public class Battle {
         } else {
             characterAttack2.setAlive(false);
         }
-
     }
 
     public int attackWarrior(boolean skill, Character characterList, int characterAttack){

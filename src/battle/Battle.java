@@ -37,15 +37,15 @@ public class Battle {
                 team2.remove(team2.get(0));
             }
 
-            Logger.logToScreen("Still alive: " + team1.size() + " members in team 1.", TypeOfMessages.CREATION);
+            Logger.logToScreen("\nStill alive: " + team1.size() + " members in team 1.", TypeOfMessages.CREATION);
             Logger.logToScreen(team2.size() + " mercenaries left in team 2", TypeOfMessages.CREATION);
 
             if (team1.isEmpty() && team2.isEmpty()) {
-                Logger.logToScreen("Both bands are dead... '¬¬", TypeOfMessages.DEATH);
+                Logger.logToScreen("\nBoth bands are dead... '¬¬", TypeOfMessages.DEATH);
             } else if (team1.isEmpty()) {
-                Logger.logToScreen("Team 2 gets an epic victory!", TypeOfMessages.CREATION);
+                Logger.logToScreen("\nTeam 2 gets an epic victory!", TypeOfMessages.CREATION);
             } else if (team2.isEmpty()){
-                Logger.logToScreen("Team 2 wiped the floor with team 1!", TypeOfMessages.CREATION);
+                Logger.logToScreen("\nTeam 1 wiped the floor with team 2!", TypeOfMessages.CREATION);
             }
         }
 
@@ -76,19 +76,8 @@ public class Battle {
             attacker1.setHp(attackWizard(skill1, attacker1, attacker2.getClassMainAttribute()));
         }
 
-
-        //Logger.logToScreen("Health of " + attacker1.getName() + " it's: " + attacker1.getHp(), TypeOfMessages.PARTY_JOINED);
-        //Logger.logToScreen("Health of " + attacker2.getName() + " it's: " + attacker2.getHp(), TypeOfMessages.PARTY_JOINED);
-
         attacker1.setAlive((attacker1.getHp() <= 0) ? false : true);
         attacker2.setAlive((attacker2.getHp() <= 0) ? false : true);
-        /*if (attacker1.getHp() <= 0){
-            attacker1.setAlive(false);
-        }
-
-        if (attacker2.getHp() <= 0){
-            attacker2.setAlive(false);
-        }*/
 
     }
 

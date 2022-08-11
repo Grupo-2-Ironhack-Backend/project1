@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ImportExportCSV {
-    public static void exportPartyToCSV(ArrayList<Character> party) {
-        File partyFile = new File("./io/party.csv");
+    public static void exportPartyToCSV(ArrayList<Character> party, String pathName) {
+        File partyFile = new File(pathName);
 
         try (FileWriter writer = new FileWriter(partyFile)) {
             for (Character member : party) {

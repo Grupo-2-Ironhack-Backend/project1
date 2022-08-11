@@ -5,9 +5,6 @@ import characters.Warrior;
 import characters.Wizard;
 
 import java.io.FileNotFoundException;
-import java.util.List;
-
-import static utils.ImportExportCSV.importCSVParty;
 
 public class Main {
     /**
@@ -21,6 +18,26 @@ public class Main {
      */
 
     public static void main(String[] args) throws FileNotFoundException, InterruptedException {
+        System.out.println("                                             _______________________\n" +
+                "   _______________________-------------------                       `\\\n" +
+                " /:--__                                                              |\n" +
+                "||&lt; &gt; |                                   ___________________________/\n" +
+                "| \\__/_________________-------------------                         |\n" +
+                "|                                                                  |\n" +
+                " |                       MERCS                                      |\n" +
+                " |                                                                  |\n" +
+                " |      \"Beware fellow adventurer, as you are about to              |\n" +
+                "  |        witness a clash of parties like never before,             |\n" +
+                "  |      earth will tear apart, skies will fall,                     |\n" +
+                "  |        there might be some pizza too.                            |\n" +
+                "  |      Fight two random generated parties or import                 |\n" +
+                "   |       the one who made it through the end and gained a           |\n" +
+                "   |       pace in your heart and in your filesystem.                 |\n" +
+                "  |                                              ____________________|_\n" +
+                "  |  ___________________-------------------------                      `\\\n" +
+                "  |/`--_                                                                 |\n" +
+                "  ||[ ]||                                            ___________________/\n" +
+                "   \\===/___________________--------------------------");
 
         Character guerrero1 = new Warrior(1,"Jhon", "Warrior",100,true,50,10);
         Character mago1 = new Wizard(5,"Cristian","Wizard",100,true,50,20);

@@ -1,8 +1,10 @@
 import battle.Battle;
+import battle.Party;
 import characters.Character;
 import characters.Warrior;
 import characters.Wizard;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +13,8 @@ import characters.*;
 import utils.*;
 
 import java.util.ArrayList;
+
+import static java.lang.Math.random;
 
 public class Main {
     /**
@@ -23,8 +27,19 @@ public class Main {
      * su funcionamiento, imprimimos el contenido del nuevo array
      */
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException, InterruptedException {
 
+        //Creación de una banda de guerreros y magos
+        Party party1 = new Party();
+        party1.createParty();
+        System.out.println("\n");
+
+        //Creación de otra banda de guerreros y magos
+        Party party2 = new Party();
+        party2.createParty();
+        System.out.println("\n");
+
+        /*
         Character guerrero1 = new Warrior(1,"Jhon", "Warrior",100,true,50,10);
         Character mago1 = new Wizard(5,"Cristian","Wizard",100,true,50,20);
 
@@ -35,7 +50,7 @@ public class Main {
         characterList2.add(guerrero1);
 
         Battle battle = new Battle(characterList1,characterList2);
-        battle.fight();
+        // battle.fight();
 
         System.out.println("\n\n==================================\n");
 
@@ -68,12 +83,16 @@ public class Main {
 
         // toString() presents info ready to create new objects
        for (Character member : newParty) {
-            Logger.LogToScreen(member.toString(), TypeOfMessages.CREATION);
+            Logger.logToScreen(member.toString(), TypeOfMessages.CREATION);
         }
 
         // getCharInfo() presents char info to be properly formatted for GUI
         for (Character member : newParty) {
-            Logger.LogToScreen(member.getCharInfo(), TypeOfMessages.PARTY_JOINED);
+            Logger.logToScreen(member.getCharInfo(), TypeOfMessages.PARTY_JOINED);
         }
+        */
+
     }
+
+
 }

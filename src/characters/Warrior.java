@@ -9,6 +9,24 @@ public class Warrior extends Character implements Attacker {
         super(id, name, charClass, hp, isAlive, stamina, strength);
     }
 
+    public int setRandomHp() {
+        int random = (int) (Math.random() * 100 + 100);
+        this.setHp(random);
+        return random;
+    }
+
+    public int setRandomStamina() {
+        int random = (int) (Math.random() * 40 + 10);
+        this.setCharacterMainAttribute(random);
+        return random;
+    }
+
+    public int setRandomStrength() {
+        int random = (int) (Math.random() * 10 + 0);
+        this.setClassMainAttribute(random);
+        return random;
+    }
+
     public int attack() {
        if(getCharacterMainAttribute() >= 5) {
           return mainAttack();
@@ -20,7 +38,7 @@ public class Warrior extends Character implements Attacker {
     public int mainAttack() {
         int damage = getClassMainAttribute();
         setCharacterMainAttribute(getCharacterMainAttribute() - 5);
-        Logger.LogToScreen("Damage dealt: " + damage, TypeOfMessages.DAMAGE_DEALT);
+        Logger.logToScreen("Damage dealt: " + damage, TypeOfMessages.DAMAGE_DEALT);
 
         return damage;
     }
@@ -29,7 +47,7 @@ public class Warrior extends Character implements Attacker {
     public int secondAttack() {
         int damage = getClassMainAttribute() / 2;
         setCharacterMainAttribute(getCharacterMainAttribute() + 1);
-        Logger.LogToScreen("Damage dealt: " + damage +
+        Logger.logToScreen("Damage dealt: " + damage +
                 ", Stamina status: " +
                 getCharacterMainAttribute(), TypeOfMessages.DAMAGE_DEALT);
         return damage;

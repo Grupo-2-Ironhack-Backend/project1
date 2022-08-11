@@ -1,7 +1,14 @@
 package characters;
 
+import battle.Party;
 import utils.Logger;
 import utils.TypeOfMessages;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public abstract class Character {
 
@@ -21,7 +28,7 @@ public abstract class Character {
         setAlive(isAlive);
         setCharacterMainAttribute(charAttribute);
         setClassMainAttribute(classAttribute);
-        Logger.LogToScreen("Character " + getName() + " created as a " + getCharClass(), TypeOfMessages.CREATION);
+        // Logger.logToScreen("Character " + getName() + " created as a " + getCharClass(), TypeOfMessages.CREATION);
     }
 
     public int getId() {
@@ -37,6 +44,23 @@ public abstract class Character {
     }
 
     public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setRandomName(Party party) throws FileNotFoundException {
+        File randomNames = new File("io/listOfNames.txt");
+        Scanner scanner = new Scanner(randomNames);
+        List<String> names = new ArrayList<>();
+        while (scanner.hasNextLine()) {
+            names.add(scanner.nextLine());
+        }
+        int random = (int) (Math.random() * names.size());
+        String name = names.get(random);
+        for (int i = 0; i < party.getParty().size(); i++) {
+            if (party.getParty().get(i).getName().equals(name)) {
+                name = name + " Jr";
+            }
+        }
         this.name = name;
     }
 

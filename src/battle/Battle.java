@@ -13,30 +13,67 @@ public class Battle {
     private List<Character> team1;
     private List<Character> team2;
 
+    private Graveyard graveyard ;
+
     public Battle(List<Character> team1, List<Character> team2) {
         this.team1 = team1;
         this.team2 = team2;
-
+        graveyard = new Graveyard();
     }
 
     public void fight(){
+        /*
         for (int i = 0; i < team1.size(); i++) {
             System.out.println("\n\n========= BATALLA " + (i+1) + " ============");
             while (team1.get(i).isAlive() && team2.get(i).isAlive()) {
                attack(team1.get(i), team2.get(i));
             }
+
+            if (team1.get(i).isAlive()==false){
+                graveyard.addToGraveyard(team1.get(i));
+                team1.remove(team1.get(i));
+            }
+            if (team2.get(i).isAlive()==false){
+                graveyard.addToGraveyard(team2.get(i));
+                team2.remove(team2.get(i));
+            }
+
+            System.out.println("Tamaño del equipo 1: " + team1.size());
+            System.out.println("Tamaño del equipo 2: " + team2.size());
+
+            System.out.println(graveyard.getGraveyard().get(0));
+        }*/
+
+        for (int i = 0; i < team1.size(); i++) {
+            System.out.println("\n\n========= BATALLA " + (i+1) + " ============");
+            while (team1.get(i).isAlive() && team2.get(i).isAlive()) {
+                attack(team1.get(i), team2.get(i));
+            }
+
+            if (team1.get(i).isAlive()==false){
+                graveyard.addToGraveyard(team1.get(i));
+                team1.remove(team1.get(i));
+            }
+            if (team2.get(i).isAlive()==false){
+                graveyard.addToGraveyard(team2.get(i));
+                team2.remove(team2.get(i));
+            }
+
+            System.out.println("Tamaño del equipo 1: " + team1.size());
+            System.out.println("Tamaño del equipo 2: " + team2.size());
+
+            System.out.println(graveyard.getGraveyard().get(0));
         }
+
+        if (team1.isEmpty() && team2.isEmpty()){
+            System.out.println("Empate");
+        } else if (team1.isEmpty()){
+            System.out.println("Ha ganado el equipo 2");
+        } else {
+            System.out.println("Ha ganado el equipo 1");
+        }
+
     }
-
-   /* public int instanceOf(Character list){
-
-        if (list instanceof Warrior){
-            return ((Warrior) list).getStrength();
-        } else if (list instanceof Wizard){
-            return  ((Wizard) list).getIntelligence();
-        }
-        return 0;
-    }*/
 
     public void attack(Character characterAttack1, Character characterAttack2){ //Ya había un Main Attack y Second Attack preparados y que además los hizo Katherine
 
@@ -103,5 +140,4 @@ public class Battle {
             return characterList.getHp() - 2;
         }
     }
-
 }

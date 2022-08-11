@@ -29,6 +29,7 @@ public class Main {
 
     public static void main(String[] args) throws FileNotFoundException, InterruptedException {
 
+        /*
         //Creación de una banda de guerreros y magos
         Party party1 = new Party();
         party1.createParty();
@@ -39,7 +40,8 @@ public class Main {
         party2.createParty();
         System.out.println("\n");
 
-        /*
+         */
+
         Character guerrero1 = new Warrior(1,"Jhon", "Warrior",100,true,50,10);
         Character mago1 = new Wizard(5,"Cristian","Wizard",100,true,50,20);
 
@@ -50,10 +52,10 @@ public class Main {
         characterList2.add(guerrero1);
 
         Battle battle = new Battle(characterList1,characterList2);
-        // battle.fight();
+        battle.fight();
 
         System.out.println("\n\n==================================\n");
-
+        /*
         ArrayList<Character> party = new ArrayList<>();
 
         Character guts = new Warrior(5, "Guts", "Warrior", 5000, true, 2500, 250);
@@ -82,7 +84,7 @@ public class Main {
 
 
         // toString() presents info ready to create new objects
-       for (Character member : newParty) {
+        for (Character member : newParty) {
             Logger.logToScreen(member.toString(), TypeOfMessages.CREATION);
         }
 

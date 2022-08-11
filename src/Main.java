@@ -5,16 +5,8 @@ import characters.Warrior;
 import characters.Wizard;
 
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.List;
 
-import characters.Character;
-import characters.*;
-import utils.*;
-
-import java.util.ArrayList;
-
-import static java.lang.Math.random;
 import static utils.ImportExportCSV.importCSVParty;
 
 public class Main {
@@ -30,81 +22,26 @@ public class Main {
 
     public static void main(String[] args) throws FileNotFoundException, InterruptedException {
 
-        /*
-        //Creación de una banda de guerreros y magos
-        Party party1 = new Party();
-        party1.createParty();
-        System.out.println("\n");
-
-        //Creación de otra banda de guerreros y magos
-        Party party2 = new Party();
-        party2.createParty();
-        System.out.println("\n");
-
-         */
-
         Character guerrero1 = new Warrior(1,"Jhon", "Warrior",100,true,50,10);
         Character mago1 = new Wizard(5,"Cristian","Wizard",100,true,50,20);
         Character guerrero2 = new Warrior(2,"newWarrior", "Warrior",100,true,50,10);
         Character mago2 = new Wizard(6,"newWizard","Wizard",100,true,50,20);
 
-        // List<Character> characterList1 = new ArrayList<>();
-        //List<Character> characterList2 = new ArrayList<>();
-
         Party characterList1 = new Party();
-        Party characterList2 = new Party();
-
         characterList1.addToParty(mago1);
         characterList1.addToParty(guerrero2);
         characterList1.addToParty(guerrero1);
         characterList1.addToParty(mago2);
 
-        List<Character> characterList3 = importCSVParty();
+        Party characterList2 = new Party();
+        characterList2 = characterList2.createParty();
 
-        Battle battle = new Battle(characterList1.getParty(),characterList3);
+        // List<Character> characterList3 = importCSVParty();
+
+        Battle battle = new Battle(characterList1.getParty(),characterList2.getParty());
         battle.fight();
 
         System.out.println("\n\n==================================\n");
-        /*
-        ArrayList<Character> party = new ArrayList<>();
-
-        Character guts = new Warrior(5, "Guts", "Warrior", 5000, true, 2500, 250);
-        Character logan = new Wizard(3, "Big Hat Logan", "Wizard", 1000, true, 3500, 250);
-        Character saitama = new Warrior(4, "Saitama", "Warrior", 1500, true, 2500, 300);
-        Character elminster = new Wizard(1, "Elminster", "Wizard", 1000, true, 4000, 300);
-        Character kiaska = new Warrior(6, "Kiaska", "Warrior", 3500, true, 3000, 200);
-        Character shierke = new Wizard(2, "Shierke", "Wizard", 1000, true, 3000, 250);
-
-        party.add(guts);
-        party.add(logan);
-        party.add(saitama);
-        party.add(elminster);
-        party.add(kiaska);
-        party.add(shierke);
-
-        ImportExportCSV.exportPartyToCSV(party);
-
-        ArrayList<Character> newParty = ImportExportCSV.importCSVParty();
-
-
-
-
-
-
-
-
-        // toString() presents info ready to create new objects
-        for (Character member : newParty) {
-            Logger.logToScreen(member.toString(), TypeOfMessages.CREATION);
-        }
-
-        // getCharInfo() presents char info to be properly formatted for GUI
-        for (Character member : newParty) {
-            Logger.logToScreen(member.getCharInfo(), TypeOfMessages.PARTY_JOINED);
-        }
-        */
 
     }
-
-
 }

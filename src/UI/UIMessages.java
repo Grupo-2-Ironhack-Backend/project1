@@ -1,7 +1,7 @@
 package UI;
 
 public class UIMessages {
-    private static final String title = "                                             _______________________\n" +
+    public static final String title = "                                             _______________________\n" +
             "   _______________________-------------------                       `\\\n" +
             " /:--__                                                              |\n" +
             "|| |                                       ___________________________/\n" +
@@ -20,8 +20,10 @@ public class UIMessages {
             "  |  ___________________-------------------------                      `\\\n" +
             "  |/`--_                                                                 |\n" +
             "  ||[ ]||                                            ___________________/\n" +
-            "   \\===/___________________--------------------------";
-    private static final String firstMenu = "";
-    private static final String export = "";
-    private static final String finalScreen = "";
+            "   \\===/___________________--------------------------\n";
+    public static final String firstMenu = "1 - Battle\n2 - Exit";
+    public static final String secondMenu = "1 - Random parties\n2 - Imported parties\n3 - Main screen\n4 - Exit";
+    public static final String export_1 = "Would you like to save this band of champions to a file? [y/n]";
+    public static final String export_2 = "\nWhere to save the file?";
+    public static final String finalScreen = "\nThanks for playing, bye.";
 }

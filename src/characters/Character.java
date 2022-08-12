@@ -1,8 +1,6 @@
 package characters;
 
 import battle.Party;
-import utils.Logger;
-import utils.TypeOfMessages;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -28,7 +26,6 @@ public abstract class Character {
         setAlive(isAlive);
         setCharacterMainAttribute(charAttribute);
         setClassMainAttribute(classAttribute);
-        // Logger.logToScreen("Character " + getName() + " created as a " + getCharClass(), TypeOfMessages.CREATION);
     }
 
     public int getId() {
@@ -118,7 +115,6 @@ public abstract class Character {
     
     @Override
     public String toString() {
-        //@Álex, modifica esta línea para que devuelva lo que necesites.
         return getId() + "," +
                 getName() + "," +
                 getCharClass() + "," +

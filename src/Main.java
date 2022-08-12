@@ -44,12 +44,16 @@ public class Main {
 
         Character guerrero1 = new Warrior(1,"Jhon", "Warrior",100,true,50,10);
         Character mago1 = new Wizard(5,"Cristian","Wizard",100,true,50,20);
+        Character mago2 = new Wizard(5,"Juan","Wizard",100,true,50,20);
+        Character guerrero2 = new Warrior(1,"Raul", "Warrior",100,true,50,10);
 
         List<Character> characterList1 = new ArrayList<>();
         List<Character> characterList2 = new ArrayList<>();
 
         characterList1.add(mago1);
         characterList2.add(guerrero1);
+        characterList1.add(mago2);
+        characterList2.add(guerrero2);
 
         Battle battle = new Battle(characterList1,characterList2);
         battle.fight();

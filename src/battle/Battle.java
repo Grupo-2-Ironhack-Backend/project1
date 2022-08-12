@@ -1,13 +1,17 @@
 package battle;
 
+import UI.MainScreen;
+
 import UI.UIMessages;
 import characters.Character;
 import characters.Warrior;
-import characters.Wizard;
+import utils.ImportExportCSV;
 import utils.Logger;
 import utils.TypeOfMessages;
 
+import java.io.FileNotFoundException;
 import java.util.List;
+import java.util.Scanner;
 
 public class Battle {
 
@@ -16,17 +20,18 @@ public class Battle {
 
     private Graveyard graveyard ;
 
+    private int round = 0;
+
     public Battle(List<Character> team1, List<Character> team2) {
         this.team1 = team1;
         this.team2 = team2;
         graveyard = new Graveyard();
     }
 
-    public void fight(){
-        Logger.logToScreen(UIMessages.warriorsArt, TypeOfMessages.ART);
+    public void fight() throws FileNotFoundException, InterruptedException {
+        Scanner userInput = new Scanner(System.in);
+        
         while (!team1.isEmpty() && !team2.isEmpty()){
-
-
             while (team1.get(0).isAlive() && team2.get(0).isAlive()) {
                 attack(team1.get(0), team2.get(0));
             }
@@ -46,16 +51,39 @@ public class Battle {
                 Logger.logToScreen("\nBoth bands are dead... '¬¬", TypeOfMessages.DEATH);
             } else if (team1.isEmpty()) {
                 Logger.logToScreen("\nTeam 2 gets an epic victory!", TypeOfMessages.CREATION);
+                Logger.logToScreen(UIMessages.export_1, TypeOfMessages.CREATION);
+
+                switch(userInput.nextLine()) {
+                    case "y", "Y":
+                        Logger.logToScreen(UIMessages.export_2, TypeOfMessages.CREATION);
+                        ImportExportCSV.exportPartyToCSV(team1, "io/team2.csv");
+                        break;
+                    case "n", "N":
+                        MainScreen.showMainScreen();
+                    default:
+                        break;
+                }
+
             } else if (team2.isEmpty()){
                 Logger.logToScreen("\nTeam 1 wiped the floor with team 2!", TypeOfMessages.CREATION);
+                Logger.logToScreen(UIMessages.export_1, TypeOfMessages.CREATION);
+
+                switch(userInput.nextLine()) {
+                    case "y", "Y":
+                        Logger.logToScreen(UIMessages.export_2, TypeOfMessages.CREATION);
+                        ImportExportCSV.exportPartyToCSV(team1, "io/team1.csv");
+                        break;
+                    default:
+                        break;
+                }
             }
         }
 
     }
 
-    public void attack(Character attacker1, Character attacker2){
-
-        Logger.logToScreen("\n =========== ROUND =============", TypeOfMessages.ATTACK);
+    public void attack(Character attacker1, Character attacker2){ //Ya había un Main Attack y Second Attack preparados y que además los hizo Katherine
+        round++;
+        Logger.logToScreen("\n ===================== ROUND " + round + " =======================", TypeOfMessages.ATTACK);
 
         boolean skill1;
         boolean skill2;
@@ -65,10 +93,8 @@ public class Battle {
 
         // Set HP of characters
         if (attacker1.getClass() == Warrior.class){
-            //attackGuerrero(skill2, pos, characterList2, attacker1);
             attacker2.setHp(attackWarrior(skill2, attacker2, attacker1.getClassMainAttribute()));
         } else {
-            //attackMago(skill1, pos, characterList1, attacker2);
             attacker2.setHp(attackWizard(skill1, attacker2, attacker1.getClassMainAttribute()));
         }
 

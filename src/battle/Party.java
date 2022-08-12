@@ -32,21 +32,18 @@ public class Party {
 
     public Party() {
         party = new ArrayList<>();
-        Logger.logToScreen("A newfound and brave party of merry mercenaries are ready to bring DEATH!", TypeOfMessages.PARTY_CREATED);
-
     }
 
     public void addToParty(Character character){
         party.add(character);
-        Logger.logToScreen(character.getName() + " has joined the party. Hope you survive the experience!", TypeOfMessages.PARTY_JOINED);
+        Logger.logToScreen(character.getName() + " has joined the party. Hope you survive the experience!\n", TypeOfMessages.PARTY_JOINED);
     }
 
     public Party createParty() throws FileNotFoundException, InterruptedException {
-
         int size = (int) (random() * 5) + 5;
         Party party = new Party();
-        Logger.logToScreen(size + " mercenaries, mixing warriors and wizards are gathering together! Wait for it...", TypeOfMessages.CREATION);
 
+        Logger.logToScreen(size + " MERCENARIES, MIXING WARRIORS AND WIZARDS, ARE GATHERING TOGETHER! WAIT FOR IT...\n", TypeOfMessages.CREATION);
 
         for (int i = 0; i < size; i++) {
             if (Math.random()*2 >= 1.0) {
@@ -70,6 +67,8 @@ public class Party {
 
         Thread.sleep(1000); // 1000ms = 1s
         Thread.sleep(1000); // 1000ms = 1s
+
+        Logger.logToScreen("A NEWFOUND AND BRAVE PARTY OF MERRY MERCENARIES ARE READY TO BRING DEATH!\n", TypeOfMessages.PARTY_CREATED);
 
         return party;
     }

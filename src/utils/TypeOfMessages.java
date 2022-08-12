@@ -8,6 +8,8 @@ public enum TypeOfMessages {
     PARTY_JOINED,
     PARTY_CREATED,
     DEATH,
+    DISSAPEARED,
+    VICTORY,
     ART,
-    DISSAPEARED;
+    DISSAPEARED
 }

@@ -44,14 +44,14 @@ public class Battle {
                 team2.remove(team2.get(0));
             }
 
-            Logger.logToScreen("\nStill alive: " + team1.size() + " members in team 1.", TypeOfMessages.CREATION);
-            Logger.logToScreen(team2.size() + " mercenaries left in team 2", TypeOfMessages.CREATION);
+            Logger.logToScreen("\nStill alive: " + team1.size() + " members in team 1.", TypeOfMessages.STILL_ALIVE);
+            Logger.logToScreen(team2.size() + " mercenaries left in team 2", TypeOfMessages.STILL_ALIVE);
 
             if (team1.isEmpty() && team2.isEmpty()) {
                 Logger.logToScreen("\nBoth bands are dead... '¬¬", TypeOfMessages.DEATH);
             } else if (team1.isEmpty()) {
                 Logger.logToScreen("\nTeam 2 gets an epic victory!\n", TypeOfMessages.CREATION);
-                Logger.logToScreen(UIMessages.warriorsArt, TypeOfMessages.ATTACK);
+                Logger.logToScreen(UIMessages.warriorsArt, TypeOfMessages.ART);
                 Logger.logToScreen("\n" + UIMessages.beholdTheDead, TypeOfMessages.DEATH);
                 switch(userInput.nextLine()) {
                     case "y", "Y":

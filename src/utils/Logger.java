@@ -38,7 +38,10 @@ public class Logger {
                 System.out.println(ConsoleColors.BLUE_BOLD);
             }
             case ART -> {
-                System.out.println(ConsoleColors.WHITE_BOLD_BRIGHT + message);
+                System.out.println(ConsoleColors.WHITE_BOLD + message);
+            }
+            case STILL_ALIVE -> {
+                System.out.println(ConsoleColors.BLUE_BOLD + message);
             }
             default -> {
                 System.out.println(ConsoleColors.RESET + message);

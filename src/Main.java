@@ -8,10 +8,10 @@ public class Main {
     }
 }
 
-    private static void presentation() {
+    /*private static void presentation() {
         Logger.logToScreen(UIMessages.title, TypeOfMessages.ART);
         Scanner input = new Scanner(System.in);
         String foo = input.nextLine();
         input.close();
     }
-}
+}*/

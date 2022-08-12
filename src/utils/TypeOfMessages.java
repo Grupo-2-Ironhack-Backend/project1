@@ -11,5 +11,5 @@ public enum TypeOfMessages {
     DISSAPEARED,
     VICTORY,
     ART,
-    DISSAPEARED
+    STILL_ALIVE
 }

@@ -20,7 +20,7 @@ public class Logger {
                 System.out.println(ConsoleColors.RED_BOLD + message);
             }
             case DAMAGE_TAKEN -> {
-                System.out.println(ConsoleColors.PURPLE_BOLD + message);
+                System.out.println(ConsoleColors.YELLOW_BOLD + message);
             }
             case PARTY_JOINED -> {
                 System.out.println(ConsoleColors.GREEN_BOLD + message);
@@ -29,16 +29,19 @@ public class Logger {
                 System.out.println(ConsoleColors.PURPLE + message);
             }
             case DEATH -> {
-                System.out.println(ConsoleColors.GREEN_BRIGHT + message);
+                System.out.println(ConsoleColors.PURPLE_BRIGHT + message);
             }
             case VICTORY -> {
-                System.out.println(ConsoleColors.PURPLE_BRIGHT + message);
+                System.out.println(ConsoleColors.PURPLE_BOLD + message);
             }
             case DISSAPEARED -> {
                 System.out.println(ConsoleColors.BLUE_BOLD);
             }
             case ART -> {
-                System.out.println(ConsoleColors.WHITE_BOLD_BRIGHT + message);
+                System.out.println(ConsoleColors.WHITE_BOLD + message);
+            }
+            case STILL_ALIVE -> {
+                System.out.println(ConsoleColors.BLUE_BOLD + message);
             }
             default -> {
                 System.out.println(ConsoleColors.RESET + message);

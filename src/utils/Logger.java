@@ -8,11 +8,13 @@ public class Logger {
             }
             case ATTACK -> {
                 System.out.println(ConsoleColors.RED + message);
+                
                 try {
                     Thread.sleep(500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+                
             }
             case DAMAGE_DEALT -> {
                 System.out.println(ConsoleColors.RED_BOLD + message);
@@ -34,6 +36,9 @@ public class Logger {
             }
             case DISSAPEARED -> {
                 System.out.println(ConsoleColors.BLUE_BOLD);
+            }
+            case ART -> {
+                System.out.println(ConsoleColors.WHITE_BOLD_BRIGHT + message);
             }
             default -> {
                 System.out.println(ConsoleColors.RESET + message);

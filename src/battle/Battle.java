@@ -26,11 +26,12 @@ public class Battle {
         this.team1 = team1;
         this.team2 = team2;
         graveyard = new Graveyard();
+
     }
 
     public void fight() throws FileNotFoundException, InterruptedException {
         Scanner userInput = new Scanner(System.in);
-        
+        Logger.logToScreen(UIMessages.warriorsArt, TypeOfMessages.ART);
         while (!team1.isEmpty() && !team2.isEmpty()){
             while (team1.get(0).isAlive() && team2.get(0).isAlive()) {
                 attack(team1.get(0), team2.get(0));
@@ -51,7 +52,6 @@ public class Battle {
                 Logger.logToScreen("\nBoth bands are dead... '¬¬", TypeOfMessages.DEATH);
             } else if (team1.isEmpty()) {
                 Logger.logToScreen("\nTeam 2 gets an epic victory!\n", TypeOfMessages.CREATION);
-                Logger.logToScreen(UIMessages.warriorsArt, TypeOfMessages.ART);
                 Logger.logToScreen("\n" + UIMessages.beholdTheDead, TypeOfMessages.DEATH);
                 switch(userInput.nextLine()) {
                     case "y", "Y":

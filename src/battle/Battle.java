@@ -48,7 +48,17 @@ public class Battle {
             if (team1.isEmpty() && team2.isEmpty()) {
                 Logger.logToScreen("\nBoth bands are dead... '¬¬", TypeOfMessages.DEATH);
             } else if (team1.isEmpty()) {
-                Logger.logToScreen("\nTeam 2 gets an epic victory!", TypeOfMessages.CREATION);
+                Logger.logToScreen("\nTeam 2 gets an epic victory!\n", TypeOfMessages.CREATION);
+                Logger.logToScreen(UIMessages.warriorsArt, TypeOfMessages.ATTACK);
+                Logger.logToScreen("\n" + UIMessages.beholdTheDead, TypeOfMessages.DEATH);
+                switch(userInput.nextLine()) {
+                    case "y", "Y":
+                        for (Character deadChar : graveyard.getGraveyard()) {
+                            Logger.logToScreen(deadChar.getName(), TypeOfMessages.DEATH);
+                        }
+                    case "n", "N":
+                        MainScreen.showMainScreen();
+                }
                 Logger.logToScreen(UIMessages.export_1, TypeOfMessages.CREATION);
 
                 switch(userInput.nextLine()) {
@@ -56,8 +66,6 @@ public class Battle {
                         Logger.logToScreen(UIMessages.export_2, TypeOfMessages.CREATION);
                         ImportExportCSV.exportPartyToCSV(team1, "io/team2.csv");
                         break;
-                    case "n", "N":
-                        MainScreen.showMainScreen();
                     default:
                         break;
                 }

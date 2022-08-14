@@ -1,5 +1,6 @@
 package battle;
 
+import UI.UIMessages;
 import characters.Character;
 import characters.Warrior;
 import characters.Wizard;
@@ -26,23 +27,27 @@ public class Party {
     }
 
     public void setParty(List<Character> party) {
-        this.party = party;
+            this.party = party;
     }
 
     public Party() {
         party = new ArrayList<>();
+        Logger.logToScreen("A newfound and brave party of merry mercenaries are ready to bring DEATH!", TypeOfMessages.PARTY_CREATED);
+
     }
 
     public void addToParty(Character character){
         party.add(character);
-        Logger.logToScreen("Character " + character.getName() + " has joined the party", TypeOfMessages.PARTY_JOINED);
+        Logger.logToScreen(character.getName() + " has joined the party. Hope you survive the experience!", TypeOfMessages.PARTY_JOINED);
     }
 
-    public void createParty() throws FileNotFoundException, InterruptedException {
+    public Party createParty() throws FileNotFoundException, InterruptedException {
 
-        int size = (int) (random() * 10) + 1;
-        Logger.logToScreen("Creating a party of warriors and wizards with " + size + " characters", TypeOfMessages.CREATION);
+        int size = (int) (random() * 5) + 5;
         Party party = new Party();
+        Logger.logToScreen(size + " mercenaries, mixing warriors and wizards are gathering together! Wait for it...", TypeOfMessages.CREATION);
+
+
         for (int i = 0; i < size; i++) {
             if (Math.random()*2 >= 1.0) {
                 Warrior character = new Warrior(i, "Warrior ", "Warrior", 0, true, 0, 0);
@@ -50,7 +55,7 @@ public class Party {
                 character.setRandomHp();
                 character.setRandomStrength();
                 character.setRandomStamina();
-                Logger.logToScreen("Character " + character.getName() + " created as a " + character.getCharClass(), TypeOfMessages.CREATION);
+                Logger.logToScreen(character.getName() + " born as a " + character.getCharClass(), TypeOfMessages.CREATION);
                 party.addToParty(character);
             } else {
                 Wizard character = new Wizard(i, "Wizard ", "Wizard", 0, true, 0, 0);
@@ -58,13 +63,15 @@ public class Party {
                 character.setRandomHp();
                 character.setRandomMana();
                 character.setRandomIntelligence();
-                Logger.logToScreen("Character " + character.getName() + " created as a " + character.getCharClass(), TypeOfMessages.CREATION);
+                Logger.logToScreen(character.getName() + " was chosen to be a " + character.getCharClass(), TypeOfMessages.CREATION);
                 party.addToParty(character);
             }
         }
+
         Thread.sleep(1000); // 1000ms = 1s
-        Logger.logToScreen("New party is ready for the battle", TypeOfMessages.PARTY_CREATED);
         Thread.sleep(1000); // 1000ms = 1s
+
+        return party;
     }
 
  }

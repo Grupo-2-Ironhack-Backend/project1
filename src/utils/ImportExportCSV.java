@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ImportExportCSV {
-    public static void exportPartyToCSV(ArrayList<Character> party) {
-        File partyFile = new File("./io/party.csv");
+    public static void exportPartyToCSV(ArrayList<Character> party, String pathName) {
+        File partyFile = new File(pathName);
 
         try (FileWriter writer = new FileWriter(partyFile)) {
             for (Character member : party) {
@@ -19,7 +19,7 @@ public class ImportExportCSV {
                 Logger.logToScreen(member.getName() + " added to the file.", TypeOfMessages.PARTY_CREATED);
             }
         } catch (Exception e) {
-            Logger.logToScreen("La banda ha desaparecido en un vórtice de malignidad. No hay banda.", TypeOfMessages.CREATION);
+            Logger.logToScreen("The band dissapeared in a vortex of madness. There's no band.", TypeOfMessages.CREATION);
         }
     }
 
@@ -39,7 +39,7 @@ public class ImportExportCSV {
                             Boolean.parseBoolean(lineas[4]),
                             Integer.parseInt(lineas[5]),
                             Integer.parseInt(lineas[6])));
-                    Logger.logToScreen(lineas[2] + " added to the new party.", TypeOfMessages.PARTY_JOINED);
+                    Logger.logToScreen(lineas[1] + " added to the new party as a " + lineas[2] + ". Enjoy the fight!", TypeOfMessages.PARTY_JOINED);
                 } else if (lineas[2].equals("Wizard")) {
                     invokedParty.add(new Wizard(Integer.parseInt(lineas[0]),
                             lineas[1],
@@ -48,11 +48,11 @@ public class ImportExportCSV {
                             Boolean.parseBoolean(lineas[4]),
                             Integer.parseInt(lineas[5]),
                             Integer.parseInt(lineas[6])));
-                    Logger.logToScreen(lineas[2] + " added to the new party.", TypeOfMessages.PARTY_JOINED);
+                    Logger.logToScreen(lineas[1] + " added to the new party as a " + lineas[2], TypeOfMessages.PARTY_JOINED);
                 }
             }
         } catch (Exception e) {
-            Logger.logToScreen("La banda no ha podido llegar a la batalla. Estan todos MUERTOS.", TypeOfMessages.DEATH);
+            Logger.logToScreen("The band couldn't make it to the battle. THEY ARE ALL DEAD!", TypeOfMessages.DEATH);
         }
 
         return invokedParty;

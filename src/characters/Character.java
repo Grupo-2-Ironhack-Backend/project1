@@ -77,11 +77,12 @@ public abstract class Character {
     }
 
     public void setHp(int hp) {
-        this.hp = hp;
         if (hp <= 0) {
             setAlive(false);
+            this.hp = 0;
         } else {
             setAlive(true);
+            this.hp = hp;
         }
     }
 
@@ -118,7 +119,6 @@ public abstract class Character {
     
     @Override
     public String toString() {
-        //@Álex, modifica esta línea para que devuelva lo que necesites.
         return getId() + "," +
                 getName() + "," +
                 getCharClass() + "," +
